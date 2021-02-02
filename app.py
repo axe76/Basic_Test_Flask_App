@@ -12,10 +12,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #SQLAlchemy has its own mod
 app.secret_key = 'password'
 api = Api(app) 
 
-@app.before_first_request
-def create_tables():
-    db.create_all() #will create app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db' and will create all tables from imported resources like item,itemlist,store etc
-
 
 jwt = JWT(app,authenticate,identity) 
 
